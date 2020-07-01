@@ -20,9 +20,9 @@
     <div class="app-wrap flex-col">
 
       <!-- Header -->
-      <header>
+      <!-- <header>
 
-      </header>
+      </header> -->
       <!-- End Header -->
 
       <!-- Main -->
@@ -31,7 +31,7 @@
         <!-- Searchbar Container-->
         <div class="searchbar">
           <input id="searchbar" type="text" name="searchbar" value="">
-          <button type="button" name="button" placeholder="Inserisci nome del film">Cerca</button>
+          <button id="searchbutton" type="button" name="button" placeholder="Inserisci nome del film">Cerca</button>
         </div>
         <!-- End Searchbar Container-->
 
@@ -52,12 +52,12 @@
     <script id="movie-template" type="text/x-handlebars-template">
       <div class="image">
         <span class="title">{{title}}</span>
-        <img src="" alt="movie-poster">
+        <!-- <img src="{{cover}}" alt="movie-poster"> -->
       </div>
 
       <!-- Data from API Container -->
       <div class="data">
-        <span class="original-title">{{original-title}}</span>
+        <span class="original-title">{{original_title}}</span>
         <span class="tagline">{{tagline}}</span>
         <span class="lang">{{lang}}</span>
         <span class="rate">{{rate}}</span>
