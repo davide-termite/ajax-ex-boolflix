@@ -1,0 +1,25 @@
+/* Reset */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* End Reset */
+
+/* General Rules */
+.flex-row{
+  display: flex;
+  flex-direction: row;
+}
+.flex-col{
+  display: flex;
+  flex-direction: column;
+}
+/* End General Rules */
+
+/* Main Layout */
+.app-wrap{
+  align-items: center;
+  height: 100vh;
+}
+/* End Main Layout */

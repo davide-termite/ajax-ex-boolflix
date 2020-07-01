@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;500;700&display=swap" rel="stylesheet">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- Handlebars -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.js"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <title>Boolflix</title>
+  </head>
+  <body>
+
+    <!-- App Wrap -->
+    <div class="app-wrap flex-col">
+
+      <!-- Header -->
+      <header>
+
+      </header>
+      <!-- End Header -->
+
+      <!-- Main -->
+      <main>
+
+        <!-- Searchbar Container-->
+        <div class="searchbar">
+          <input id="searchbar" type="text" name="searchbar" value="">
+          <button type="button" name="button" placeholder="Inserisci nome del film">Cerca</button>
+        </div>
+        <!-- End Searchbar Container-->
+
+        <!-- Search Result Container -->
+        <div class="results">
+
+        </div>
+        <!-- End Search Result Container -->
+
+      </main>
+      <!-- End Main -->
+
+    </div>
+    <!-- End App Wrap -->
+
+
+    <!-- Handlebars Template -->
+    <script id="movie-template" type="text/x-handlebars-template">
+      <div class="image">
+        <span class="title">{{title}}</span>
+        <img src="" alt="movie-poster">
+      </div>
+
+      <!-- Data from API Container -->
+      <div class="data">
+        <span class="original-title">{{original-title}}</span>
+        <span class="tagline">{{tagline}}</span>
+        <span class="lang">{{lang}}</span>
+        <span class="rate">{{rate}}</span>
+      </div>
+      <!-- End Data from API Container -->
+    </script>
+
+    <!-- Js -->
+    <script src="js/script.js" type="text/javascript"></script>
+  </body>
+</html>
