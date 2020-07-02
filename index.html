@@ -50,17 +50,19 @@
 
     <!-- Handlebars Template -->
     <script id="movie-template" type="text/x-handlebars-template">
-      <div class="image">
-        <span class="title">{{title}}</span>
-        <!-- <img src="{{cover}}" alt="movie-poster"> -->
+      <div class="cover">
+        <h2 class="title">{{title}}</h2>
+        <h2 class="title">{{name}}</h2>
+        <img src="{{cover}}" alt="movie-poster">
       </div>
 
       <!-- Data from API Container -->
       <div class="data">
         <span class="original-title">{{original_title}}</span>
+        <span class="original-title">{{original_name}}</span>
         <span class="tagline">{{tagline}}</span>
-        <span class="lang">{{lang}}</span>
-        <span class="rate">{{rate}}</span>
+        <span class="lang"><img src="assets/flag_icons/png/{{lang}}.png" alt="{{lang}}"></span>
+        <span class="rate">{{{rate}}}</span>
       </div>
       <!-- End Data from API Container -->
     </script>
