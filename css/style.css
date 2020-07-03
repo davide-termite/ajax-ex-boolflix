@@ -51,13 +51,14 @@ main {
   flex-wrap: wrap;
   width: 90%;
   margin: 0 auto;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 /* END MAIN */
 
 /* CARD */
 .card{
   position: relative;
+  margin-top: 10px;
   cursor: pointer;
 }
 .cover {
@@ -85,10 +86,9 @@ main {
   color: white;
 }
 .data span {
-  /* min-height: 50px; */
   margin: 5px 15px;
   color: white;
-  font-size: 12px;
+  font-size: 16px;
 }
 .data span.overview {
   min-height: 100px;
@@ -111,3 +111,12 @@ main {
 /* End Hover */
 /* END CARD */
 /*** End Main Layout ***/
+
+/* MEDIA QUERIES */
+@media screen and (max-width: 768px) {
+
+  header{
+    flex-direction: column !important;
+  }
+
+}
