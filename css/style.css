@@ -4,6 +4,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+body{
+  font-family: "Lato", sans-serif;
+  background-color: black;
+}
 /* End Reset */
 
 /* General Rules */
@@ -17,9 +21,93 @@
 }
 /* End General Rules */
 
-/* Main Layout */
-.app-wrap{
+/*** Main Layout ***/
+
+/* MACROSECTION - HEADER */
+header {
+  justify-content: space-around;
   align-items: center;
-  height: 100vh;
+  width: 100%;
+  height: 80px;
+  background-color: black;
 }
-/* End Main Layout */
+.logo-container h1 {
+  color: red;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+}
+.searchbar {
+  width: 80%;
+}
+/* END HEADER */
+
+/* MACROSECTION - MAIN */
+main {
+  width: 100%;
+  height: calc(100vh - 100px);
+  overflow-y: scroll;
+}
+.results{
+  flex-wrap: wrap;
+  width: 90%;
+  margin: 0 auto;
+  justify-content: space-between;
+}
+/* END MAIN */
+
+/* CARD */
+.card{
+  position: relative;
+  cursor: pointer;
+}
+.cover {
+  width: 324px;
+  height: 513px;
+}
+.cover img{
+  width: 100%;
+  height: 100%;
+  border: 1px solid white;
+}
+
+/* Data section */
+.data {
+  display: none;
+  position: absolute;
+  top: 10%;
+  width: 100%;
+  cursor: pointer;
+}
+.data h2{
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+}
+.data span {
+  /* min-height: 50px; */
+  margin: 5px 15px;
+  color: white;
+  font-size: 12px;
+}
+.data span.overview {
+  min-height: 100px;
+  max-height: 150px;
+  overflow-y: scroll;
+}
+.data span.gold{
+  color: gold;
+}
+/* End Data section */
+
+/* Hover */
+.card:hover .data {
+  display: flex;
+}
+.card:hover .cover {
+  opacity: 0.2;
+  transition: 0.2s;
+}
+/* End Hover */
+/* END CARD */
+/*** End Main Layout ***/

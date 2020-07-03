@@ -1,8 +1,9 @@
 $(document).ready(function(){
 
-  // Al click del bottone "Cerca" vengono mostrati film che
+  // Al click del bottone "Cerca" vengono mostrati risultati che
   // contengono la query inserita
   $("#searchbutton").on('click', function(){
+    reset()
 
     // Richiamo il valore dell'input SEARCHBAR in una variabile
     var searchQuery = $("#searchbar").val();
@@ -11,13 +12,14 @@ $(document).ready(function(){
     if (searchQuery != "") {
       searchMovie(searchQuery);
       searchSerie(searchQuery);
-      $(".results").text(" ");
+      $("#searchbar").text(" ");
     }
   });
 
-  // Al premere del tasto invio" vengono mostrati film che
+  // Al premere del tasto invio vengono mostrati risultati che
   // contengono la query inserita
   $("#searchbar").keypress(function(){
+    reset()
 
     // Richiamo il valore dell'input SEARCHBAR in una variabile
     var searchQuery = $("#searchbar").val();
@@ -27,7 +29,7 @@ $(document).ready(function(){
       if (searchQuery != "") {
         searchMovie(searchQuery);
         searchSerie(searchQuery);
-        $(".results").text(" ");
+        $("#searchbar").text(" ");
       }
     }
   });
@@ -100,15 +102,24 @@ function searchSerie(query) {
 //   --> queryResult: array, contiene oggetti, risultati della ricerca
 //   --> return: nulla
 function populateMovie(queryResult) {
-  var imgServer = "https://image.tmdb.org/t/p/w300";
+  var imgServer = "https://image.tmdb.org/t/p/w342";
+
+  var cover = "";
 
   for (var i = 0; i < queryResult.length; i++) {
+    var poster = queryResult[i].poster_path;
+
+    if (poster == null){
+      cover = "assets/img/covernull.jpg"
+    } else {
+      cover = imgServer + poster;
+    }
 
     var movie = {
       title: queryResult[i].title,
       cover: imgServer + queryResult[i].poster_path,
       original_title: queryResult[i].original_title,
-      tagline: queryResult[i].tagline,
+      overview: queryResult[i].overview,
       lang: queryResult[i].original_language,
       rate: ratingStar(queryResult[i].vote_average),
     }
@@ -118,15 +129,24 @@ function populateMovie(queryResult) {
 
 }
 function populateSeries(queryResult) {
-  var imgServer = "https://image.tmdb.org/t/p/w300";
+  var imgServer = "https://image.tmdb.org/t/p/w342";
+
+  var cover = "";
 
   for (var i = 0; i < queryResult.length; i++) {
+    var poster = queryResult[i].poster_path;
+
+    if (poster == null){
+      cover = "assets/img/covernull.jpg"
+    } else {
+      cover = imgServer + poster;
+    }
 
     var serie = {
+      cover: cover,
       title: queryResult[i].name,
-      cover: imgServer + queryResult[i].poster_path,
       original_title: queryResult[i].original_name,
-      tagline: queryResult[i].tagline,
+      overview: queryResult[i].overview,
       lang: queryResult[i].original_language,
       rate: ratingStar(queryResult[i].vote_average),
     }
@@ -143,7 +163,7 @@ function ratingStar(number){
   if (number !== 0 || number !== ""){
 
     var rating = Math.ceil(number/2);
-    var stars = [];
+    var stars = "";
     var i = 0;
 
     while (i < 5) {

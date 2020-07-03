@@ -20,27 +20,26 @@
     <div class="app-wrap flex-col">
 
       <!-- Header -->
-      <!-- <header>
-
-      </header> -->
+      <header class="flex-row">
+        <!-- Searchbar Container-->
+        <div class="logo-container">
+          <h1>Boolflix</h1>
+        </div>
+        <div class="searchbar">
+          <input id="searchbar" type="text" name="searchbar" value="" placeholder="Inserisci nome di un film o di una serie tv">
+          <button id="searchbutton" type="button" name="button" >Cerca</button>
+        </div>
+        <!-- End Searchbar Container-->
+      </header>
       <!-- End Header -->
 
       <!-- Main -->
       <main>
-
-        <!-- Searchbar Container-->
-        <div class="searchbar">
-          <input id="searchbar" type="text" name="searchbar" value="">
-          <button id="searchbutton" type="button" name="button" placeholder="Inserisci nome del film">Cerca</button>
-        </div>
-        <!-- End Searchbar Container-->
-
         <!-- Search Result Container -->
-        <div class="results">
+        <div class="results flex-row">
 
         </div>
         <!-- End Search Result Container -->
-
       </main>
       <!-- End Main -->
 
@@ -50,22 +49,27 @@
 
     <!-- Handlebars Template -->
     <script id="movie-template" type="text/x-handlebars-template">
-      <div class="cover">
-        <h2 class="title">{{title}}</h2>
-        <h2 class="title">{{name}}</h2>
-        <img src="{{cover}}" alt="movie-poster">
-      </div>
+      <!-- Container -->
+      <div class="card">
+        <!-- Cover -->
+        <div class="cover">
+          <img src="{{cover}}" alt="movie-poster">
+        </div>
+        <!-- End Cover -->
 
-      <!-- Data from API Container -->
-      <div class="data">
-        <span class="original-title">{{original_title}}</span>
-        <span class="original-title">{{original_name}}</span>
-        <span class="tagline">{{tagline}}</span>
-        <span class="lang"><img src="assets/flag_icons/png/{{lang}}.png" alt="{{lang}}"></span>
-        <span class="rate">{{{rate}}}</span>
+        <!-- Data from API Container -->
+        <div class="data flex-col">
+          <h2 class="title">{{name}}{{title}}</h2>
+          <span class="original-title"> <b>Titolo Originale:</b> {{original_title}}{{original_name}}</span>
+          <span class="lang"> <b>Lingua:</b> <img src="assets/flag_icons/png/{{lang}}.png" alt="&nbsp; {{lang}}"></span>
+          <span class="overview">{{overview}}</span>
+          <span class="rate"> <b>Voto:</b> <span class="gold">{{{rate}}}</span></span>
+        </div>
+        <!-- End Data -->
       </div>
-      <!-- End Data from API Container -->
+      <!-- End Container-->
     </script>
+    <!-- End Data from API Container -->
 
     <!-- Js -->
     <script src="js/script.js" type="text/javascript"></script>
