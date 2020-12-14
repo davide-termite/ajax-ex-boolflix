@@ -122,6 +122,7 @@ function populateMovie(queryResult) {
       overview: queryResult[i].overview,
       lang: queryResult[i].original_language,
       rate: ratingStar(queryResult[i].vote_average),
+      genre: getGenresMovie(queryResult[i].genre_ids),
     }
 
     displayResult(movie);
@@ -149,6 +150,8 @@ function populateSeries(queryResult) {
       overview: queryResult[i].overview,
       lang: queryResult[i].original_language,
       rate: ratingStar(queryResult[i].vote_average),
+      // genre_id: getGenres(queryResult[i].genre_ids),
+      // genres: queryResult[i].genres
     }
 
     displayResult(serie);
@@ -179,6 +182,7 @@ function ratingStar(number){
 
   return stars;
 }
+
 // funzione che stampa film con l'utilizzo di Handlebars
 //   --> movie: oggetto, contiene dati con cui popolare il template
 //   --> return: nulla
@@ -189,6 +193,42 @@ function displayResult(movie){
   var html = template(movie);
   $(".results").append(html);
 }
+
+
+function getGenresMovie(arrayId) {
+
+  var urlGenreMovie = "https://api.themoviedb.org/3/genre/movie/list";
+  var api_key = "021f10396f4dfd536802346c3b13f5d1";
+
+  $.ajax(
+    {
+      url: urlGenreMovie,
+      method: "GET",
+      data: {
+        api_key: api_key,
+        language: "it-IT",
+      },
+
+      success: function(data){
+        var genre = data.genres
+        var genreNames = "";
+
+        for (var j = 0; j < arrayId.length; j++){
+          for (var i = 0; i < genre.length; i++){
+            if (genre[i].id == arrayId[j]){
+              genreNames += genre[i].name + " ";
+            }
+          }
+        }
+      },
+
+      error: function(errore){
+        alert("C'è stato un errore " + errore);
+      }
+    }
+  )
+}
+
 
 
 /////////////////////////////////////////////////
